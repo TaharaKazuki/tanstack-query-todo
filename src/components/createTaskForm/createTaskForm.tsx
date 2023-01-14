@@ -1,6 +1,8 @@
 import { FC, ReactElement } from 'react'
 import { Box, Stack, Typography } from '@mui/material'
 
+import { Priority } from './enums/Priority'
+import { Status } from './enums/Status'
 import { TaskDateField } from './taskDateField'
 import { TaskDescriptionField } from './taskDescriptionField'
 import { TaskSelectField } from './taskSelectField'
@@ -18,8 +20,33 @@ export const CreateTaskForm: FC = (): ReactElement => {
         <TaskDateField />
 
         <Stack sx={{ width: '100%' }} direction="row" spacing={2}>
-          <TaskSelectField />
-          <TaskSelectField />
+          <TaskSelectField
+            label="Status"
+            name="status"
+            items={[
+              { value: Status.todo, label: Status.todo.toUpperCase() },
+              { value: Status.inProgress, label: Status.inProgress.toUpperCase() },
+              { value: Status.completed, label: Status.completed.toUpperCase() },
+            ]}
+          />
+          <TaskSelectField
+            label="Priority"
+            name="priority"
+            items={[
+              {
+                value: Priority.low,
+                label: Priority.low,
+              },
+              {
+                value: Priority.normal,
+                label: Priority.normal,
+              },
+              {
+                value: Priority.high,
+                label: Priority.high,
+              },
+            ]}
+          />
         </Stack>
       </Stack>
     </Box>
