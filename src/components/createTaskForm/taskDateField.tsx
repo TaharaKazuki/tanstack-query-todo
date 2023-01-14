@@ -9,7 +9,7 @@ import { IDateField } from './interfaces/IDateField'
 export const TaskDateField: FC<IDateField> = ({
   value = new Date(),
   disabled = false,
-  onChange,
+  onChange = () => console.info('Change'),
 }): ReactElement => {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
