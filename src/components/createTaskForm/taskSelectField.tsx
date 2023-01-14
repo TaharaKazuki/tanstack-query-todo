@@ -1,17 +1,27 @@
 import type { FC, ReactElement } from 'react'
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material'
 
-export const TaskSelectField: FC = (): ReactElement => {
+import { ISelectField } from './interfaces/ISelectField'
+
+export const TaskSelectField: FC<ISelectField> = ({
+  value = '',
+  label = 'Select Box',
+  name = 'selectBox',
+  items = [{ value: '', label: 'AddItem' }],
+  disabled = false,
+  onChange = (e: SelectChangeEvent) => console.info(e),
+}): ReactElement => {
   return (
     <FormControl fullWidth size="small">
-      <InputLabel id="status">Status</InputLabel>
+      <InputLabel id={`${name}-id`}>Status</InputLabel>
       <Select
-        labelId="status"
-        id="status-select"
-        value=""
-        label="Status"
-        name="status"
-        onChange={(e) => console.info(e)}
+        labelId={`${name}-id`}
+        id={`${name}-id-select`}
+        value={value}
+        label={label}
+        name={name}
+        onChange={onChange}
+        disabled={disabled}
       >
         <MenuItem value={10}>Ten</MenuItem>
         <MenuItem value={20}>Twenty</MenuItem>

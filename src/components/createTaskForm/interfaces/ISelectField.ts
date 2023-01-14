@@ -12,4 +12,5 @@ export type ISelectField = {
   label?: string
   value?: string
   onChange?: (e: SelectChangeEvent) => void
+  items: ISelectItems[]
 } & IDisabled
