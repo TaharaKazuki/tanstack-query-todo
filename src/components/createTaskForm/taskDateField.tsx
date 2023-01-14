@@ -14,7 +14,6 @@ export const TaskDateField: FC<IDateField> = ({
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DesktopDatePicker
-        label="Basic example"
         value={value}
         disabled={disabled}
         onChange={onChange}
