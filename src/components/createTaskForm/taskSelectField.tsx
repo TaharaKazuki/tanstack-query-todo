@@ -23,9 +23,11 @@ export const TaskSelectField: FC<ISelectField> = ({
         onChange={onChange}
         disabled={disabled}
       >
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+        {items.map((item, i) => (
+          <MenuItem key={item.value + i} value={item.value}>
+            {item.label}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   )
