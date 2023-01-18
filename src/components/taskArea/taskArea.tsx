@@ -9,6 +9,22 @@ export const TaskArea: FC = (): ReactElement => {
         <h2>Status Of Your Tasks As On</h2>
         {format(new Date(), 'PPPP')}
       </Box>
+      <Grid container display="flex" justifyContent="center">
+        <Grid
+          item
+          display="flex"
+          flexDirection="row"
+          justifyContent="space-around"
+          alignItems="center"
+          md={10}
+          xs={12}
+          mb={8}
+        >
+          <Box>Task Counter</Box>
+          <Box>Task Counter</Box>
+          <Box>Task Counter</Box>
+        </Grid>
+      </Grid>
     </Grid>
   )
 }
