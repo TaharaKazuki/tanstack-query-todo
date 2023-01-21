@@ -1,6 +1,9 @@
 import { FC, ReactElement } from 'react'
 import { Box } from '@mui/system'
 
+import { TaskDescription } from './taskDescription'
+import { TaskHeader } from './taskHeader'
+
 export const Task: FC = (): ReactElement => {
   return (
     <Box
@@ -18,7 +21,8 @@ export const Task: FC = (): ReactElement => {
         borderColor: 'error.light',
       }}
     >
-      Test
+      <TaskHeader />
+      <TaskDescription />
     </Box>
   )
 }
