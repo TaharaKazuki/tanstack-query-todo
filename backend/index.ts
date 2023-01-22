@@ -7,8 +7,15 @@ import express, {
 import { DataSource } from 'typeorm'
 import dotenv from 'dotenv'
 
+import cors from 'cors'
+import bodyParser from 'body-parser'
+
 const app: Express = express()
 dotenv.config()
+
+app.use(bodyParser.json())
+
+app.use(cors())
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
