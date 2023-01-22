@@ -3,9 +3,9 @@ import express, {
   Request,
   Response,
 } from 'express'
-import dotenv from 'dotenv'
 
 import { DataSource } from 'typeorm'
+import dotenv from 'dotenv'
 
 const app: Express = express()
 dotenv.config()
@@ -23,16 +23,17 @@ export const AppDataSource = new DataSource({
 const port = process.env.PORT
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Express')
+  res.send('Express + TypeScript Server')
 })
 
 AppDataSource.initialize()
   .then(() => {
     app.listen(port)
-    console.info('Data Source has been initialized')
+    console.log('Data Source has been initialized!')
   })
   .catch((err) => {
-    console.error('Error during Data', err)
+    console.error(
+      'Error during Data Source initialization',
+      err,
+    )
   })
-
-app.listen(port)
