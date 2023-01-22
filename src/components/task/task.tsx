@@ -4,6 +4,7 @@ import { Box } from '@mui/system'
 import { Priority } from '../createTaskForm/enums/Priority'
 import { Status } from '../createTaskForm/enums/Status'
 
+import { renderPriorityBorderColor } from './helpers/renderPriorityBorderColor'
 import { ITask } from './interfaces/ITask'
 import { TaskDescription } from './taskDescription'
 import { TaskFooter } from './taskFooter'
@@ -13,7 +14,7 @@ export const Task: FC<ITask> = ({
   title = 'Test Title',
   date = new Date(),
   description = 'Lorem ipsum dolor sit',
-  priority = Priority.normal,
+  priority = Priority.high,
   status = Status.completed,
   onStatusChange = (e) => console.info(e),
   onClick = (e) => console.info(e),
@@ -31,7 +32,7 @@ export const Task: FC<ITask> = ({
         backgroundColor: 'background.paper',
         borderRadius: '8px',
         border: '1px solid',
-        borderColor: 'error.light',
+        borderColor: renderPriorityBorderColor(priority),
       }}
     >
       <TaskHeader title={title} date={date} />
