@@ -1,11 +1,23 @@
 import { FC, ReactElement } from 'react'
 import { Box } from '@mui/system'
 
+import { Priority } from '../createTaskForm/enums/Priority'
+import { Status } from '../createTaskForm/enums/Status'
+
+import { ITask } from './interfaces/ITask'
 import { TaskDescription } from './taskDescription'
 import { TaskFooter } from './taskFooter'
 import { TaskHeader } from './taskHeader'
 
-export const Task: FC = (): ReactElement => {
+export const Task: FC<ITask> = ({
+  title = 'Test Title',
+  date = new Date(),
+  description = 'Lorem ipsum dolor sit',
+  priority = Priority.normal,
+  status = Status.completed,
+  onStatusChange = (e) => console.info(e),
+  onClick = (e) => console.info(e),
+}): ReactElement => {
   return (
     <Box
       display="flex"
@@ -22,9 +34,9 @@ export const Task: FC = (): ReactElement => {
         borderColor: 'error.light',
       }}
     >
-      <TaskHeader />
-      <TaskDescription />
-      <TaskFooter />
+      <TaskHeader title={title} date={date} />
+      <TaskDescription description={description} />
+      <TaskFooter onClick={onClick} onStatusChange={onStatusChange} />
     </Box>
   )
 }

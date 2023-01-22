@@ -6,7 +6,7 @@ import { ITaskHeader } from './interfaces/ITaskHeader'
 
 export const TaskHeader: FC<ITaskHeader> = ({
   title = 'Default title',
-  data = new Date(),
+  date = new Date(),
 }): ReactElement => {
   return (
     <Box display="flex" width="100%" justifyContent="space-between" mb={4}>
@@ -14,7 +14,7 @@ export const TaskHeader: FC<ITaskHeader> = ({
         <Typography variant="h6">{title}</Typography>
       </Box>
       <Box>
-        <Chip variant="outlined" label={format(data, 'PPP')} />
+        <Chip variant="outlined" label={format(date, 'PPP')} />
       </Box>
     </Box>
   )
