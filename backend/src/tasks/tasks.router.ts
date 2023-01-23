@@ -2,4 +2,6 @@ import { Request, Response, Router } from 'express'
 
 export const taskRouter: Router = Router()
 
-app.
+taskRouter.get('/tasks', (req: Request, res: Response) => {
+  res.send('Express')
+})
